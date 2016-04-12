@@ -1,0 +1,92 @@
+Version 1.0.0
+
+initiale Version, Export nach jeder Bestellung oder als Cron-Job
+Express/Normal
+
+Version 1.0.1
+
+Verbesserungen:
+- IBAN/BIC werden bereinigt und validiert
+- Protokollierung auch nicht exportierter Records
+- Multishop-Fähigkeit (experimentell, nicht getestet)
+- Logging verbessert, Fehler werden genauer beschrieben
+
+Version 1.0.2
+
+Stabilisierung / Verbesserungen:
+- Protokolltabelle erweitert um Status- und Kommentarspalte
+- Fehlermeldungen werden in Kommentar protokolliert
+- Email an Shopbetreiber bei Export-Fehlern mit Auflistung der nicht exportierten Bestellungen
+- Verbessertes Fehlerhandling, aussagekräftigere und abgespeckte Log-Meldungen
+- Kontoinformationen werden nicht mehr ins Logfile geschrieben (Datenschutz)
+- Bestellungen werden auch in den folgenden Status erfasst:
+--- Offen (0)
+--- In Bearbeitung (1)
+--- Teilweise abgeschlossen (3)
+--- Zur Lieferung bereit (5)
+--- Teilweise ausgeliefert (6)
+--- Komplett ausgeliefert (7)
+- Berücksichtigung des Zahlstatus:
+--- offen (17)
+--- komplett in Rechnung gestellt (10)
+- es werden auch Exporte mit leerer BIC verarbeitet
+
+Version 1.0.3
+
+Bugfix: beim Mailversand wurde die Shopbetreiber-Email nicht korrekt ermittelt
+
+Version 1.1.0
+
+- Individueller Verwendungszweck als Textbaustein
+- Validierung des Zeichensatzes und der Feldlängen vor dem Export
+- Konfigurierbarer Bestellstatus für Daten-Selektion im Batchbetrieb
+- Emailversand optional (immer, niemals, bei Fehler)
+- umfangreiches Code-Refactoring
+
+Version 1.1.1
+
+Verwendungszweck-Platzhalter $month liefert den Monatsnamen anstatt der Zahl
+
+Version 1.1.2
+
+- strengere Validierung der Bankdaten. Prüfung Format, Prüfsumme etc...
+- Validierung der BIC gegen die Bundesbank-Liste gültiger BankId Codes
+- Abwärtskompatibilität bis 4.2 implementiert (Snippets)
+
+Version 1.1.3
+
+Fehlerhafte Exports können automatisch wiederholt werden (per Konfiguration einstellbar)
+
+Version 1.2.0
+
+Order-Status kann automatisch gesetzt werden. Der Status kann getrennt für den Erfolgreichen
+Export und für den Fehlerfall gesetzt werden. Es wird optional auch eine Status-Email verschickt.
+
+Version 1.2.1
+
+BugFix: Wenn der Statusmailversand für das Plugin nicht aktiviert ist, wird der Status nicht gesetzt  
+  
+Version 1.2.2
+
+BugFix: Falsche Anzahl Transaktionen im ExportFile, wenn bei einigen Bestellungen Validations-Fehler auftraten  
+  
+Version 1.2.3
+
+BugFix: Der Eintrag "includeError" in der konfigurationsdatei funktioniert nicht. Das wurde korrigiert.
+Hinweis: Wenn die Option "includeError" aktiviert wird, ist darauf zu achten, daß der Fehlerstatus (orderErrorState) in die Liste der 
+         "paymentState" für die Selektion aufgenommen wird, da die korrigierten Bestellungen sonst nicht gefunden werden!  
+         
+Version 1.2.4
+
+BugFix: Checksumme nur über valide Records (siehe Fix 1.2.2)
+
+Version 1.2.5
+
+BugFix: Verknüpfung der Tabellen modifiziert (order zu user_attributes). Macht sich bemerkbar, wenn vereinzelt Bestellungen nicht
+        selektiert werden, obwohl sie den richtigen Status haben und alles in Ordnung zu sein scheint.
+
+Version 1.2.6
+
+BugFix: BIC Validation Fehler bei 8 stelliger BIC
+
+  

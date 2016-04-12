@@ -1,0 +1,9 @@
+Status Email Sepa Export
+
+Beim Export der Zahlungsdaten sind Fehler aufgetreten.
+
+Order        Customer     Export                 Status     Comment
+-------------------------------------------------------------------------------------
+{foreach item=details key=orderNo from=$sProtocol}
+{$orderNo|fill:12} {$details.customer_id|fill:12} {$details.export_ts|fill:22} {$details.status|fill:10} {$details.comment}
+{/foreach}
