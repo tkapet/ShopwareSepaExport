@@ -1,11 +1,12 @@
 SEPA Zahlungsdaten Export
+=========================
 
 Dieses Plugin erweitert die bestehenden Lastschrift-Zahlarten und extrahiert die Zahlungsdaten einer Bestellung, bei der die Zahlart "(SEPA-)Lastschrift" gewählt wurde. Aus den extrahierten Daten wird eine XML-Datei erzeugt, welche die Formatspezifikation des DFÜ-Abkommens Anlage 3 in der Version 2.7 (pain.008.003.02) erfüllt und direkt bei der Bank eingereicht werden kann.
 
 Je nach Konfiguration des Plugins kann der Export durch verschiedene Ereignisse ausgelöst werden:
 
-• Automatisch bei jeder Bestellung, bei der (Sepa-)Lastschrift als Zahlungsart gewählt wurde<br>
-• Automatisch per Cronjob (z.B. einmal täglich als Sammelexport)
+- Automatisch bei jeder Bestellung, bei der (Sepa-)Lastschrift als Zahlungsart gewählt wurde<br>
+- Automatisch per Cronjob (z.B. einmal täglich als Sammelexport)
 
 Aktuell unterstützt das Plugin die in Shopware integrierte Sepa-Lastschrift und die Ottscho SEPA Lastschrift-Erweiterung.
 
